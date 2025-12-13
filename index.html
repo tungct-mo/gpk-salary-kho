@@ -1,215 +1,230 @@
 <!doctype html>
 <html lang="vi">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bảng lương kho GOPIKA</title>
+<head>
+  <meta charset="utf-8">
+  <title>Bảng lương kho GOPIKA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-  :root{
-    --bg:#0b1220;
-    --card:#111b2a;
-    --text:#e8eefc;
-    --muted:#94a3b8;
-    --line:#1e2a40;
-    --field:#0e1625;
-    --brand:#17C795;
-    --brand-600:#11b489;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    min-height:100vh;
-    background:radial-gradient(circle at top,#1f2937 0,#020617 55%);
-    color:var(--text);
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-  }
-  .shell{width:100%;max-width:960px;}
-  .card{
-    background:rgba(15,23,42,0.95);
-    border-radius:16px;
-    border:1px solid var(--line);
-    box-shadow:0 24px 60px rgba(15,23,42,.9);
-    padding:24px 20px 28px;
-  }
-  @media(min-width:768px){
-    .card{padding:28px 32px 32px;}
-  }
-  h1{font-size:1.4rem;margin-bottom:4px;}
-  .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px;}
-  .form-row{
-    display:flex;flex-direction:column;gap:12px;margin-bottom:16px;
-  }
-  @media(min-width:640px){
-    .form-row{flex-direction:row;align-items:flex-end;}
-  }
-  .field{flex:1;}
-  label{
-    font-size:.8rem;color:var(--muted);margin-bottom:4px;display:block;
-  }
-  input{
-    width:100%;background:var(--field);border-radius:10px;
-    border:1px solid var(--line);padding:9px 10px;
-    color:var(--text);font-size:.9rem;outline:none;
-  }
-  input::placeholder{color:#64748b;font-size:.85rem;}
-  input:focus{
-    border-color:var(--brand);
-    box-shadow:0 0 0 1px rgba(23,199,149,.25);
-  }
-  button{
-    min-width:130px;padding:10px 14px;border-radius:999px;border:none;
-    font-size:.9rem;font-weight:600;cursor:pointer;
-    background:linear-gradient(135deg,var(--brand),#22c55e);
-    color:#020617;box-shadow:0 12px 24px rgba(16,185,129,.45);
-    transition:transform .08s ease,box-shadow .08s ease,background .08s ease;
-  }
-  button:disabled{opacity:.6;cursor:wait;box-shadow:none;}
-  button:not(:disabled):hover{
-    transform:translateY(-1px);
-    box-shadow:0 16px 32px rgba(16,185,129,.5);
-    background:linear-gradient(135deg,var(--brand-600),#16a34a);
-  }
-  #msg{min-height:18px;font-size:.85rem;margin-bottom:10px;color:#f97373;}
-  .result-wrap{
-    margin-top:8px;border-radius:12px;border:1px solid var(--line);
-    background:rgba(15,23,42,.85);max-height:420px;overflow:auto;
-  }
-  table{width:100%;border-collapse:collapse;font-size:.85rem;}
-  th,td{padding:8px 10px;border-bottom:1px solid rgba(30,64,175,.3);}
-  th{
-    width:40%;text-align:left;color:var(--muted);
-    background:rgba(15,23,42,.98);position:sticky;left:0;
-  }
-  tr:nth-child(even) td{background:rgba(15,23,42,.85);}
-  tr:nth-child(odd) td{background:rgba(15,23,42,.75);}
-  .hint{font-size:.78rem;color:var(--muted);margin-top:4px;}
-  .input-error{
-  border-color:#f97373 !important;
-  box-shadow:0 0 0 1px rgba(248,113,113,.5) !important;
-}
-</style>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111b2a;
+      --text:#e8eefc;
+      --muted:#94a3b8;
+      --line:#1e2a40;
+      --field:#0e1625;
+      --brand:#17C795;
+      --brand-600:#11b489;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      background:radial-gradient(circle at top,#1f2937 0,#020617 55%);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+    }
+    .shell{width:100%;max-width:960px;}
+    .card{
+      background:rgba(15,23,42,0.95);
+      border-radius:16px;
+      border:1px solid var(--line);
+      box-shadow:0 24px 60px rgba(15,23,42,.9);
+      padding:24px 20px 28px;
+    }
+    @media(min-width:768px){.card{padding:28px 32px 32px;}}
+    h1{font-size:1.4rem;margin-bottom:4px;}
+    .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px;}
+    .form-row{
+      display:flex;flex-direction:column;gap:12px;margin-bottom:16px;
+    }
+    @media(min-width:640px){
+      .form-row{flex-direction:row;align-items:flex-end;}
+    }
+    .field{flex:1;}
+    label{
+      font-size:.8rem;color:var(--muted);margin-bottom:4px;display:block;
+    }
+    input{
+      width:100%;background:var(--field);border-radius:10px;
+      border:1px solid var(--line);padding:9px 10px;
+      color:var(--text);font-size:.9rem;outline:none;
+    }
+    input::placeholder{color:#64748b;font-size:.85rem;}
+    input:focus{
+      border-color:var(--brand);
+      box-shadow:0 0 0 1px rgba(23,199,149,.25);
+    }
+    button{
+      min-width:130px;padding:10px 14px;border-radius:999px;border:none;
+      font-size:.9rem;font-weight:600;cursor:pointer;
+      background:linear-gradient(135deg,var(--brand),#22c55e);
+      color:#020617;box-shadow:0 12px 24px rgba(16,185,129,.45);
+      transition:transform .08s ease,box-shadow .08s ease,background .08s ease;
+    }
+    button:disabled{opacity:.6;cursor:wait;box-shadow:none;}
+    button:not(:disabled):hover{
+      transform:translateY(-1px);
+      box-shadow:0 16px 32px rgba(16,185,129,.5);
+      background:linear-gradient(135deg,var(--brand-600),#16a34a);
+    }
+    .msg{min-height:18px;font-size:.85rem;margin:10px 0 4px;}
+    .msg-error{color:#f97373;}
+    .msg-info{color:#38bdf8;}
+    .result-wrap{
+      margin-top:8px;border-radius:12px;border:1px solid var(--line);
+      background:rgba(15,23,42,.85);max-height:420px;overflow:auto;
+    }
+    table{width:100%;border-collapse:collapse;font-size:.85rem;}
+    th,td{padding:8px 10px;border-bottom:1px solid rgba(30,64,175,.3);}
+    th{width:40%;text-align:left;color:var(--muted);background:rgba(15,23,42,.98);position:sticky;left:0;}
+    tr:nth-child(even) td{background:rgba(15,23,42,.85);}
+    tr:nth-child(odd) td{background:rgba(15,23,42,.75);}
+    .hint{font-size:.78rem;color:var(--muted);margin-top:4px;}
+    .input-error{
+      border-color:#f97373 !important;
+      box-shadow:0 0 0 1px rgba(248,113,113,.5) !important;
+    }
+  </style>
+</head>
 
 <body>
-<div class="shell">
-  <div class="card">
-    <h1>Bảng lương kho GOPIKA</h1>
-    <p class="subtitle">Nhập CCCD và STK (đầy đủ) để xem chi tiết lương theo tháng.</p>
+  <div class="shell">
+    <div class="card">
+      <h1>Bảng lương kho GOPIKA</h1>
+      <p class="subtitle">Nhập CCCD và STK (đầy đủ) để xem chi tiết lương theo tháng.</p>
 
-    <form id="lookup-form">
-      <div class="form-row">
-        <div class="field">
-          <label for="cccd">Số CCCD</label>
-          <input id="cccd" autocomplete="off" inputmode="numeric"
-                 placeholder="Nhập số CCCD của bạn">
+      <form id="lookup-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="cccd">Số CCCD</label>
+            <input id="cccd" autocomplete="off" inputmode="numeric"
+                   placeholder="Nhập số CCCD của bạn">
+          </div>
+          <div class="field">
+            <label for="stk">Số tài khoản (STK)</label>
+            <input id="stk" autocomplete="off" inputmode="numeric"
+                   placeholder="Nhập đầy đủ số tài khoản">
+            <div class="hint">Hệ thống chỉ dùng CCCD/STK để tra cứu lương, không lưu trữ thêm.</div>
+          </div>
+          <div>
+            <button id="btn" type="submit">Tra cứu</button>
+          </div>
         </div>
-        <div class="field">
-          <label for="stk">Số tài khoản (STK)</label>
-          <input id="stk" autocomplete="off" inputmode="numeric"
-                 placeholder="Nhập đầy đủ số tài khoản">
-        </div>
-        <div>
-          <button id="btn" type="submit">Tra cứu</button>
-        </div>
+      </form>
+
+      <div id="message" class="msg"></div>
+
+      <div class="result-wrap">
+        <div id="result"></div>
       </div>
-    </form>
-
-    <div id="msg"></div>
-
-    <div class="result-wrap">
-      <div id="result"></div>
     </div>
   </div>
-</div>
 
-<script>
-  // === ĐỔI THÀNH URL WEB APP APPS SCRIPT KHO CỦA BẠN ===
-  const API_URL = 'https://script.google.com/macros/s/AKfycbyguclfmElLy_Sw6RaQQ_C4KUr6-FyvLrRoKVh3LRR1JIkLt1jFQpzwWARImC0vzvst/exec';
+  <script>
+    // === ĐIỀN URL WEB APP CỦA BẠN Ở ĐÂY ===
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyguclfmElLy_Sw6RaQQ_C4KUr6-FyvLrRoKVh3LRR1JIkLt1jFQpzwWARImC0vzvst/exec';
+    // hoặc: const API_URL = 'https://script.googleusercontent.com/macros/gopika.vn/echo?user_content_key=...';
 
-  const $   = id => document.getElementById(id);
-  const btn = $('btn');
-  const msg = $('msg');
-  const out = $('result');
+    const $        = id => document.getElementById(id);
+    const form     = $('lookup-form');
+    const cccdEl   = $('cccd');
+    const stkEl    = $('stk');
+    const msgEl    = $('message');
+    const resultEl = $('result');
+    const btn      = $('btn');
 
-  function escapeHtml(s){
-    return String(s ?? '').replace(/[&<>"']/g,c=>({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    }[c]));
-  }
-  function setBusy(b){ btn.disabled = b; }
-async function lookup(){
-  const cccd = $('cccd').value.replace(/\D/g,'').trim();
-  const stk  = $('stk').value.replace(/\s/g,'').trim();
-
-  msg.textContent = '';
-  out.innerHTML   = '';
-  setBusy(true);
-
-  // reset viền đỏ
-  ['cccd','stk'].forEach(id => $(id).classList.remove('input-error'));
-
-  // kiểm tra thiếu input ở phía client
-  if(!cccd || !stk){
-    msg.textContent = 'Vui lòng nhập đầy đủ CCCD và STK.';
-    if(!cccd) $('cccd').classList.add('input-error');
-    if(!stk)  $('stk').classList.add('input-error');
-    setBusy(false);
-    return;
-  }
-
-  try{
-    const url  = `${API_URL}?cccd=${encodeURIComponent(cccd)}&stk=${encodeURIComponent(stk)}`;
-    const res  = await fetch(url,{cache:'no-store'});
-    const data = await res.json();
-
-    if(!data.ok){
-      msg.textContent = data.error || 'Không tìm thấy dữ liệu. Vui lòng kiểm tra lại.';
-
-      const code = data.code || '';
-
-      if (code === 'NO_CCCD') {
-        $('cccd').classList.add('input-error');
-      } else if (code === 'STK_MISMATCH') {
-        $('stk').classList.add('input-error');
-      } else if (code === 'MISSING_INPUT') {
-        if(!cccd) $('cccd').classList.add('input-error');
-        if(!stk)  $('stk').classList.add('input-error');
-      } else {
-        // lỗi khác -> đánh dấu cả 2
-        $('cccd').classList.add('input-error');
-        $('stk').classList.add('input-error');
+    function setBusy(on){ btn.disabled = on; }
+    function escapeHtml(s){
+      return String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function setMessage(text,type='error'){
+      msgEl.textContent = text || '';
+      msgEl.className   = 'msg ' + (type === 'info' ? 'msg-info' : text ? 'msg-error' : '');
+    }
+    function renderRecord(rec){
+      const entries = Object.entries(rec || {});
+      if(!entries.length){ resultEl.innerHTML = ''; return; }
+      let rows = '';
+      for(const [k,v] of entries){
+        if(v==='' || v==null) continue;
+        rows += `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`;
       }
-      return;
+      resultEl.innerHTML = `<table><tbody>${rows}</tbody></table>`;
     }
 
-    // ok -> hiển thị dữ liệu
-    const rec = data.record || {};
-    const entries = Object.entries(rec);
+    async function lookup(){
+      const cccd = cccdEl.value.trim();
+      const stk  = stkEl.value.trim();
 
-    if(!entries.length){
-      msg.textContent = 'Không có dữ liệu hiển thị.';
-      return;
+      cccdEl.classList.remove('input-error');
+      stkEl.classList.remove('input-error');
+      setMessage('');
+      renderRecord({});
+      setBusy(true);
+
+      if(!cccd){
+        setMessage('Vui lòng nhập số CCCD.');
+        cccdEl.classList.add('input-error');
+        setBusy(false);
+        return;
+      }
+      if(!stk){
+        setMessage('Vui lòng nhập số tài khoản (STK).');
+        stkEl.classList.add('input-error');
+        setBusy(false);
+        return;
+      }
+
+      try{
+        setMessage('Đang tra cứu, vui lòng chờ...', 'info');
+        const url = `${API_URL}?cccd=${encodeURIComponent(cccd)}&stk=${encodeURIComponent(stk)}`;
+        console.log('CALL', url);
+        const res = await fetch(url,{cache:'no-store'});
+
+        if(!res.ok){
+          throw new Error('HTTP '+res.status);
+        }
+
+        const text = await res.text();
+        console.log('RAW', text);
+        let data;
+        try{
+          data = JSON.parse(text);
+        }catch(e){
+          throw new Error('API không trả về JSON, kiểm tra lại Apps Script Web App.');
+        }
+
+        if(!data.ok){
+          setMessage(data.error || 'Không tìm thấy bản ghi phù hợp.');
+          // tô đỏ đúng ô sai (nếu backend có trả code)
+          if(data.code === 'NO_CCCD')      cccdEl.classList.add('input-error');
+          else if(data.code === 'STK_MISMATCH') stkEl.classList.add('input-error');
+          return;
+        }
+
+        setMessage('');
+        renderRecord(data.record);
+
+      }catch(err){
+        console.error(err);
+        setMessage('Lỗi kết nối tới server. Vui lòng thử lại sau.');
+      }finally{
+        setBusy(false);
+      }
     }
 
-    let html = '<table><tbody>';
-    entries.forEach(([label,value])=>{
-      if(value === '' || value == null) return;
-      html += `<tr><th>${escapeHtml(label)}</th><td>${escapeHtml(value)}</td></tr>`;
-    });
-    html += '</tbody></table>';
-    out.innerHTML = html;
-
-  }catch(e){
-    console.error(e);
-    msg.textContent = 'Lỗi kết nối. Vui lòng thử lại sau.';
-  }finally{
-    setBusy(false);
-  }
-}
-</script>
+    if(form){
+      form.addEventListener('submit',e=>{
+        e.preventDefault();
+        lookup();
+      });
+    }else{
+      console.error('Không tìm thấy form #lookup-form');
+    }
+  </script>
 </body>
 </html>
-
-
